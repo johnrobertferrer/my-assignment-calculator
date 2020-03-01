@@ -252,5 +252,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/welcome.js') }}"></script>
+    <script src="{{ mix('/js/welcome.js') }}"></script>
 @endsection
