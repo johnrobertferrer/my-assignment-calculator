@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@index');
+
+Route::get('/export-pdf', 'MainController@exportPdf');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

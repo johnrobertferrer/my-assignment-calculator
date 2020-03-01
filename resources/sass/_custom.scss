@@ -1,0 +1,183 @@
+.blue {
+    background: #01a8ed;
+}
+
+.yellow {
+    background: #ffe699;
+}
+
+.orange {
+    background: #f9943b;
+}
+
+.white {
+    background: #fff;
+}
+
+.green {
+    background: #c6e0b4;
+}
+
+.peach {
+    background: #ff9966;
+}
+
+.light-peach {
+    background: #ffcc99;
+}
+
+.violet-pure {
+    background: #9966ff;
+}
+
+.violet-light {
+    background: #cc99ff;
+}
+
+.gold-pure {
+    background: #ffc000;
+}
+
+.gold-light {
+    background: #ffcc99;
+}
+
+.blue-pure {
+    background: #00b0f0;
+}
+
+.blue-light {
+    background: #00b0f0;
+}
+
+.pink-pure {
+    background: #ff33cc;
+}
+
+.pink-light {
+    background: #ff99ff;
+}
+
+.green-pure {
+    background: #00b050;
+}
+
+.green-light {
+    background: #92d050;
+}
+
+.indigo-pure {
+    background: #9966ff;
+}
+
+.indigo-light {
+    background: #9999ff;
+}
+
+.peach-pure {
+    background: #ff9966;
+}
+
+.peach-light {
+    background: #ffcc99;
+}
+
+.dirty-green {
+    background: #e2efda;
+}
+
+.dirty-gray {
+    background: #d9e1f2;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.header-text {
+    font-size: 1.2rem;
+}
+
+// .section, .section div { 
+//     border: 1px solid #111;
+//     border-color: #111;
+// }
+
+.left {
+    width: 47.5%;
+    margin-right: 2.5%;
+    position: absolute;
+}
+
+.right {
+    width: 47.5%;
+    margin-left: 2.5%;
+    position: absolute;
+}
+
+.nav-item {
+    margin-right: 30px;
+}
+
+table tr td, table tr th {
+    text-align: center;
+    font-size: 1rem;
+}
+
+table thead tr th, table tbody tr td{
+    padding: 1rem !important;
+    box-sizing: border-box;
+}
+
+#right table thead tr th, #right table tbody tr td{
+    padding: 0.5rem !important;
+    box-sizing: border-box;
+}
+
+.footer label {
+    font-size: 1.50rem;
+}
+
+.w-10-p {
+    width: 10%;
+}
+
+.vertical-text {
+    transform: rotate(180deg);
+    writing-mode: tb-lr;
+    writing-mode: vertical-lr;
+    writing-mode: sideways-lr;
+}
+
+.start span input[type="input"], .end span input[type="input"] {
+    border: 0;
+    text-align: center;
+}
+
+.start span input[type="input"]:focus, .end span input[type="input"]:focus {
+    box-shadow: none;
+}
+
+.with-border {
+    border: 2px solid #000;
+}
+
+.with-border-left {
+    border-left: 2px solid #000;
+}
+
+.with-border-right {
+    border-right: 2px solid #000;
+}
+
+.mt-2px {
+    margin-top: -2px;
+}
+
+.mx-width-100 {
+    max-width: 100%;
+}
+
+table tbody tr td {
+    word-break: break-word;
+}
