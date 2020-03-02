@@ -144,8 +144,19 @@ table thead tr th, table tbody tr td{
 
 .vertical-text {
     transform: rotate(180deg);
+    -ms-writing-mode: tb-lr;
+    -webkit-writing-mode: tb-lr;
+    -moz-writing-mode: tb-lr;
     writing-mode: tb-lr;
+
+    -ms-writing-mode: vertical-lr;
+    -webkit-writing-mode: vertical-lr;
+    -moz-writing-mode: vertical-lr;
     writing-mode: vertical-lr;
+
+    -ms-writing-mode: sideways-lr;
+    -webkit-writing-mode: sideways-lr;
+    -moz-writing-mode: sideways-lr;
     writing-mode: sideways-lr;
 }
 
