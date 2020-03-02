@@ -170,6 +170,10 @@ table thead tr th, table tbody tr td{
     border-right: 2px solid #000;
 }
 
+.with-border-bottom {
+    border-bottom: 2px solid #000;
+}
+
 .mt-2px {
     margin-top: -2px;
 }
@@ -180,4 +184,113 @@ table thead tr th, table tbody tr td{
 
 table tbody tr td {
     word-break: break-word;
+}
+
+
+
+
+
+
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+/* Super small devices (landscape phones, 576px and up) */
+@media (min-width: 200px) {  
+    .p-5 {
+        padding: 0 !important;
+    }
+
+    table tr td, table tr th {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    
+    table thead tr th, table tbody tr td{
+        padding: 0.5rem !important;
+        box-sizing: border-box;
+    }
+    
+    #right table thead tr th, #right table tbody tr td{
+        padding: 0.25rem !important;
+        box-sizing: border-box;
+    }
+
+    .start span input[type="input"], .end span input[type="input"] {
+        font-size: 0.8rem;
+    }
+
+    .footer label {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .header-1 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .p-5 {
+        padding: 2.5rem !important;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .container-fluid {
+        padding-left: 7.5% !important;
+        padding-right: 7.5% !important;
+    }
+
+    table tr td, table tr th {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    table thead tr th, table tbody tr td{
+        padding: 1rem !important;
+        box-sizing: border-box;
+    }
+
+    #right table thead tr th, #right table tbody tr td{
+        padding: 0.5rem !important;
+        box-sizing: border-box;
+    }
+
+    .start span input[type="input"], .end span input[type="input"] {
+        font-size: 1rem;
+    }
+
+    .footer label {
+        font-size: 1.50rem;
+    }
+
+    .header-1 {
+        font-size: 1.20rem;
+    }
 }

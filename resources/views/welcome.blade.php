@@ -9,49 +9,56 @@
         [
             'id' => 1,
             'name' => 'PRE-PLANNING',
-            'color' => 'violet'
+            'color' => 'violet',
+            'rate' => 0.05
         ],
         [
             'id' => 2,
             'name' => 'PLAN YOUR MAP',
-            'color' => 'gold'
+            'color' => 'gold',
+            'rate' => 0.15
         ],
         [
             'id' => 3,
             'name' => 'PLAN YOUR READING',
-            'color' => 'blue'
+            'color' => 'blue',
+            'rate' => 0.40
         ],
         [
             'id' => 4,
             'name' => 'PEN TO PAPER',
-            'color' => 'pink'
+            'color' => 'pink',
+            'rate' => 0.75
         ],
         [
             'id' => 5,
             'name' => 'PRUNE IT BACK',
-            'color' => 'green'
+            'color' => 'green',
+            'rate' => 0.85
         ],
         [
             'id' => 6,
             'name' => 'PAUSE TO PROCESS',
-            'color' => 'indigo'
+            'color' => 'indigo',
+            'rate' => 0.90
         ],
         [
             'id' => 7,
             'name' => 'POLISH IT UP',
-            'color' => 'peach'
+            'color' => 'peach',
+            'rate' => 1
         ]
     ];
 @endphp
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
             <div class="section section-card p-5 blue with-border">
                 <div class="full-width">
                     <div class="header text-black text-center font-weight-bold orange p-1 with-border">
-                    <label class="header-text">Assignment Calculator</label>
+                    <label class="header-text header-1">Assignment Calculator</label>
                     </div>
                 </div>
 
@@ -166,7 +173,7 @@
             <div class="section section-card p-5 orange mt-4 with-border">
                 <div class="full-width">
                     <div class="header text-black text-center font-weight-bold blue p-1 with-border">
-                        <label class="header-text">Assignment Calculator</label>
+                        <label class="header-text header-1">The 7 Essay Steps</label>
                     </div>
                 </div>
 
@@ -177,7 +184,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="{{ $step['color'] }}-pure w-10-p text-white" rowspan="4">
-                                            <label class="vertical-text text-center">STEP {{ $step['id']}}</label>
+                                            <label class="vertical-text text-center font-weight-bold">STEP {{ $step['id']}}</label>
                                         </td>
                                         <td class="{{ $step['color'] }}-light p-2">Resources</td>
                                         <td class="{{ $step['color'] }}-light p-2">Notes</td>
@@ -227,23 +234,28 @@
                             </tr>
                             <tr>
                                 <td class="dirty-green">Module #1</td>
-                                <td class="dirty-green">04/05/2020</td>
+                                <td class="dirty-green">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'one') }}</td>
                             </tr>
                             <tr>
                                 <td class="dirty-gray">Module #2</td>
-                                <td class="dirty-gray">04/05/2020</td>
+                                <td class="dirty-gray">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'two') }}</td>
                             </tr>
                             <tr>
                                 <td class="dirty-green">Module #3</td>
-                                <td class="dirty-green">04/05/2020</td>
+                                <td class="dirty-green">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'three') }}</td>
                             </tr>
                             <tr>
                                 <td class="dirty-gray">Module #4</td>
-                                <td class="dirty-gray">04/05/2020</td>
+                                <td class="dirty-gray">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'four') }}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pt-3 pb-3 white with-border-left with-border-right"></div>
+
+                    @if ($step['id'] === 7)
+                        <div class="pt-3 pb-3 white with-border-left with-border-right with-border-bottom"></div>
+                    @else
+                        <div class="pt-3 pb-3 white with-border-left with-border-right"></div>
+                    @endif
                 @endforeach
             </div>
         </div>

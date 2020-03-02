@@ -1,195 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-.blue {
-  background: #01a8ed;
-}
-
-.yellow {
-  background: #ffe699;
-}
-
-.orange {
-  background: #f9943b;
-}
-
-.white {
-  background: #fff;
-}
-
-.green {
-  background: #c6e0b4;
-}
-
-.peach {
-  background: #ff9966;
-}
-
-.light-peach {
-  background: #ffcc99;
-}
-
-.violet-pure {
-  background: #9966ff;
-}
-
-.violet-light {
-  background: #cc99ff;
-}
-
-.gold-pure {
-  background: #ffc000;
-}
-
-.gold-light {
-  background: #ffcc99;
-}
-
-.blue-pure {
-  background: #00b0f0;
-}
-
-.blue-light {
-  background: #00b0f0;
-}
-
-.pink-pure {
-  background: #ff33cc;
-}
-
-.pink-light {
-  background: #ff99ff;
-}
-
-.green-pure {
-  background: #00b050;
-}
-
-.green-light {
-  background: #92d050;
-}
-
-.indigo-pure {
-  background: #9966ff;
-}
-
-.indigo-light {
-  background: #9999ff;
-}
-
-.peach-pure {
-  background: #ff9966;
-}
-
-.peach-light {
-  background: #ffcc99;
-}
-
-.dirty-green {
-  background: #e2efda;
-}
-
-.dirty-gray {
-  background: #d9e1f2;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.header-text {
-  font-size: 1.2rem;
-}
-
-.left {
-  width: 47.5%;
-  margin-right: 2.5%;
-  position: absolute;
-}
-
-.right {
-  width: 47.5%;
-  margin-left: 2.5%;
-  position: absolute;
-}
-
-.nav-item {
-  margin-right: 30px;
-}
-
-table tr td,
-table tr th {
-  text-align: center;
-  font-size: 1rem;
-}
-
-table thead tr th,
-table tbody tr td {
-  padding: 1rem !important;
-  box-sizing: border-box;
-}
-
-#right table thead tr th,
-#right table tbody tr td {
-  padding: 0.5rem !important;
-  box-sizing: border-box;
-}
-
-.footer label {
-  font-size: 1.5rem;
-}
-
-.w-10-p {
-  width: 10%;
-}
-
-.vertical-text {
-  transform: rotate(180deg);
-  -webkit-writing-mode: tb-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: tb-lr;
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-  -webkit-writing-mode: sideways-lr;
-      -ms-writing-mode: sideways-lr;
-          writing-mode: sideways-lr;
-}
-
-.start span input[type=input],
-.end span input[type=input] {
-  border: 0;
-  text-align: center;
-}
-
-.start span input[type=input]:focus,
-.end span input[type=input]:focus {
-  box-shadow: none;
-}
-
-.with-border {
-  border: 2px solid #000;
-}
-
-.with-border-left {
-  border-left: 2px solid #000;
-}
-
-.with-border-right {
-  border-right: 2px solid #000;
-}
-
-.mt-2px {
-  margin-top: -2px;
-}
-
-.mx-width-100 {
-  max-width: 100%;
-}
-
-table tbody tr td {
-  word-break: break-word;
-}
-
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -11071,6 +10881,372 @@ a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6;
+  }
+}
+
+.lds-circle {
+  display: inline-block;
+  transform: translateZ(1px);
+  margin-left: 47vw;
+  margin-top: 45vh;
+}
+
+.lds-circle > div {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 8px;
+  border-radius: 50%;
+  background: #f9943b;
+  -webkit-animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+          animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@-webkit-keyframes lds-circle {
+  0%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+            animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(1800deg);
+    -webkit-animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+            animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+@keyframes lds-circle {
+  0%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+            animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(1800deg);
+    -webkit-animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+            animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+.blue {
+  background: #01a8ed;
+}
+
+.yellow {
+  background: #ffe699;
+}
+
+.orange {
+  background: #f9943b;
+}
+
+.white {
+  background: #fff;
+}
+
+.green {
+  background: #c6e0b4;
+}
+
+.peach {
+  background: #ff9966;
+}
+
+.light-peach {
+  background: #ffcc99;
+}
+
+.violet-pure {
+  background: #9966ff;
+}
+
+.violet-light {
+  background: #cc99ff;
+}
+
+.gold-pure {
+  background: #ffc000;
+}
+
+.gold-light {
+  background: #ffcc99;
+}
+
+.blue-pure {
+  background: #00b0f0;
+}
+
+.blue-light {
+  background: #00b0f0;
+}
+
+.pink-pure {
+  background: #ff33cc;
+}
+
+.pink-light {
+  background: #ff99ff;
+}
+
+.green-pure {
+  background: #00b050;
+}
+
+.green-light {
+  background: #92d050;
+}
+
+.indigo-pure {
+  background: #9966ff;
+}
+
+.indigo-light {
+  background: #9999ff;
+}
+
+.peach-pure {
+  background: #ff9966;
+}
+
+.peach-light {
+  background: #ffcc99;
+}
+
+.dirty-green {
+  background: #e2efda;
+}
+
+.dirty-gray {
+  background: #d9e1f2;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.header-text {
+  font-size: 1.2rem;
+}
+
+.left {
+  width: 47.5%;
+  margin-right: 2.5%;
+  position: absolute;
+}
+
+.right {
+  width: 47.5%;
+  margin-left: 2.5%;
+  position: absolute;
+}
+
+.nav-item {
+  margin-right: 30px;
+}
+
+table tr td,
+table tr th {
+  text-align: center;
+  font-size: 1rem;
+}
+
+table thead tr th,
+table tbody tr td {
+  padding: 1rem !important;
+  box-sizing: border-box;
+}
+
+#right table thead tr th,
+#right table tbody tr td {
+  padding: 0.5rem !important;
+  box-sizing: border-box;
+}
+
+.footer label {
+  font-size: 1.5rem;
+}
+
+.w-10-p {
+  width: 10%;
+}
+
+.vertical-text {
+  transform: rotate(180deg);
+  -webkit-writing-mode: tb-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: tb-lr;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  -webkit-writing-mode: sideways-lr;
+      -ms-writing-mode: sideways-lr;
+          writing-mode: sideways-lr;
+}
+
+.start span input[type=input],
+.end span input[type=input] {
+  border: 0;
+  text-align: center;
+}
+
+.start span input[type=input]:focus,
+.end span input[type=input]:focus {
+  box-shadow: none;
+}
+
+.with-border {
+  border: 2px solid #000;
+}
+
+.with-border-left {
+  border-left: 2px solid #000;
+}
+
+.with-border-right {
+  border-right: 2px solid #000;
+}
+
+.with-border-bottom {
+  border-bottom: 2px solid #000;
+}
+
+.mt-2px {
+  margin-top: -2px;
+}
+
+.mx-width-100 {
+  max-width: 100%;
+}
+
+table tbody tr td {
+  word-break: break-word;
+}
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+/* Super small devices (landscape phones, 576px and up) */
+
+@media (min-width: 200px) {
+  .p-5 {
+    padding: 0 !important;
+  }
+
+  table tr td,
+  table tr th {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  table thead tr th,
+  table tbody tr td {
+    padding: 0.5rem !important;
+    box-sizing: border-box;
+  }
+
+  #right table thead tr th,
+  #right table tbody tr td {
+    padding: 0.25rem !important;
+    box-sizing: border-box;
+  }
+
+  .start span input[type=input],
+  .end span input[type=input] {
+    font-size: 0.8rem;
+  }
+
+  .footer label {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .header-1 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .p-5 {
+    padding: 2.5rem !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    padding-left: 7.5% !important;
+    padding-right: 7.5% !important;
+  }
+
+  table tr td,
+  table tr th {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  table thead tr th,
+  table tbody tr td {
+    padding: 1rem !important;
+    box-sizing: border-box;
+  }
+
+  #right table thead tr th,
+  #right table tbody tr td {
+    padding: 0.5rem !important;
+    box-sizing: border-box;
+  }
+
+  .start span input[type=input],
+  .end span input[type=input] {
+    font-size: 1rem;
+  }
+
+  .footer label {
+    font-size: 1.5rem;
+  }
+
+  .header-1 {
+    font-size: 1.2rem;
   }
 }
 

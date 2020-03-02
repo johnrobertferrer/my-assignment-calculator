@@ -25,11 +25,16 @@
     <body>
 @endif
     <div id="app">
-        @yield('navbar')
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div v-show="isLoading">
+            <div class="lds-circle"><div></div></div>
+        </div>
+        <div v-show="!isLoading">
+            @yield('navbar')
+            
+            <main class="py-4">
+                @yield('content')
+            </main>
+        </div>
     </div>
 
     @yield('script')

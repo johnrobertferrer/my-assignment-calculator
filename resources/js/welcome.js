@@ -11,6 +11,10 @@ window.Moment = Moment;
 let app = new Vue({
     el: '#app',
 
+    mounted() {
+        this.preloader();
+    },
+
     data() {
         return {
             assignment: {
@@ -30,19 +34,37 @@ let app = new Vue({
                     start: new Date(new Date().setHours(0,0,0,0)),
                     end: new Date(new Date().setHours(0,0,0,0))
                 }
-            }
+            },
+
+            loadingStatus: true
         }
     },
 
     methods: {
+        preloader() {
+            setTimeout(() => this.loadingStatus = false, 0); 
+        },
+
         getTotalDays(number) {
             let start = Moment(this.assignment[number].start);
             let end = Moment(this.assignment[number].end);
 
-            return end.diff(start, 'days');
+            return Math.abs(end.diff(start, 'days'));
+        },
+
+        getCompletionDateByStep(rate, number) {
+            let computedDays = Math.floor(this.getTotalDays(number) * rate);
+            let completionDate = Moment(this.assignment[number].start).add(computedDays, 'days');
+
+            console.log('completionDate', completionDate);
+
+            return completionDate === null ? '' : Moment(completionDate).format('MM/DD/YYYY');
         }
     },
 
     computed: {
+        isLoading() {
+            return this.loadingStatus;
+        }
     }
 });

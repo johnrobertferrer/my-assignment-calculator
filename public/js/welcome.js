@@ -30267,6 +30267,9 @@ Vue.use(moment__WEBPACK_IMPORTED_MODULE_1___default.a);
 window.Moment = moment__WEBPACK_IMPORTED_MODULE_1___default.a;
 var app = new Vue({
   el: '#app',
+  mounted: function mounted() {
+    this.preloader();
+  },
   data: function data() {
     return {
       assignment: {
@@ -30286,17 +30289,35 @@ var app = new Vue({
           start: new Date(new Date().setHours(0, 0, 0, 0)),
           end: new Date(new Date().setHours(0, 0, 0, 0))
         }
-      }
+      },
+      loadingStatus: true
     };
   },
   methods: {
+    preloader: function preloader() {
+      var _this = this;
+
+      setTimeout(function () {
+        return _this.loadingStatus = false;
+      }, 0);
+    },
     getTotalDays: function getTotalDays(number) {
       var start = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.assignment[number].start);
       var end = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.assignment[number].end);
-      return end.diff(start, 'days');
+      return Math.abs(end.diff(start, 'days'));
+    },
+    getCompletionDateByStep: function getCompletionDateByStep(rate, number) {
+      var computedDays = Math.floor(this.getTotalDays(number) * rate);
+      var completionDate = moment__WEBPACK_IMPORTED_MODULE_1___default()(this.assignment[number].start).add(computedDays, 'days');
+      console.log('completionDate', completionDate);
+      return completionDate === null ? '' : moment__WEBPACK_IMPORTED_MODULE_1___default()(completionDate).format('MM/DD/YYYY');
     }
   },
-  computed: {}
+  computed: {
+    isLoading: function isLoading() {
+      return this.loadingStatus;
+    }
+  }
 });
 
 /***/ }),
