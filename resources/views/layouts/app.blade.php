@@ -25,8 +25,8 @@
     <body>
 @endif
     <div id="app">
-        @if (isset($background))
-        <div v-if="!isLoading">
+        {{-- @if (isset($background)) --}}
+        {{-- <div v-if="!isLoading">
             <div class="lds-circle"><div></div></div>
         </div>
         @endif
@@ -36,7 +36,12 @@
             <main class="py-4">
                 @yield('content')
             </main>
-        </div>
+        </div> --}}
+        @yield('navbar')
+            
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
 
     @yield('script')
