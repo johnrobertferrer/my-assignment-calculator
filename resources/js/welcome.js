@@ -36,13 +36,13 @@ let app = new Vue({
                 }
             },
 
-            loadingStatus: true
+            loadingStatus: false
         }
     },
 
     methods: {
         preloader() {
-            setTimeout(() => this.loadingStatus = false, 2500); 
+            setTimeout(() => this.loadingStatus = true, 2500); 
         },
 
         getTotalDays(number) {

@@ -25,10 +25,12 @@
     <body>
 @endif
     <div id="app">
-        <div v-show="isLoading">
+        @if (isset($background))
+        <div v-if="!isLoading">
             <div class="lds-circle"><div></div></div>
         </div>
-        <div v-show="!isLoading">
+        @endif
+        <div v-show="isLoading">
             @yield('navbar')
             
             <main class="py-4">
