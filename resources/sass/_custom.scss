@@ -47,7 +47,7 @@
 }
 
 .blue-light {
-    background: #00b0f0;
+    background: #4ed0ff;
 }
 
 .pink-pure {
@@ -158,6 +158,18 @@ table thead tr th, table tbody tr td{
     -webkit-writing-mode: sideways-lr;
     -moz-writing-mode: sideways-lr;
     writing-mode: sideways-lr;
+}
+
+.vertical-text-1 {
+    -webkit-transform: rotate(270deg); 
+	-moz-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.p-0-important {
+    padding: 0 !important;
 }
 
 .start span input[type="input"], .end span input[type="input"] {

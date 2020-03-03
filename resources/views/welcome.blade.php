@@ -183,8 +183,8 @@
                             <table class="full-width with-border mt-2px">
                                 <tbody>
                                     <tr>
-                                        <td class="{{ $step['color'] }}-pure w-10-p text-white" rowspan="4">
-                                            <label class="vertical-text text-center font-weight-bold">STEP {{ $step['id']}}</label>
+                                        <td class="{{ $step['color'] }}-pure w-10-p text-white p-0-important" rowspan="4">
+                                            <label class="vertical-text-1 text-center font-weight-bold">STEP {{ $step['id']}}</label>
                                         </td>
                                         <td class="{{ $step['color'] }}-light p-2">Resources</td>
                                         <td class="{{ $step['color'] }}-light p-2">Notes</td>
