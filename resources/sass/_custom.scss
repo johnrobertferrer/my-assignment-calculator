@@ -272,18 +272,26 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
-
+    .vertical-text-1 {
+        font-size: 0.6rem;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {  
-
+    .vertical-text-1 {
+        font-size: 0.7rem;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     .p-5 {
         padding: 2.5rem !important;
+    }
+
+    .vertical-text-1 {
+        font-size: 0.8rem;
     }
 }
 
@@ -319,5 +327,9 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
     .header-1 {
         font-size: 1.20rem;
+    }
+
+    .vertical-text-1 {
+        font-size: 0.9rem;
     }
 }
