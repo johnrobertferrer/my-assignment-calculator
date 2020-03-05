@@ -54,7 +54,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-12">
+        <div class="col-lg-8 col-md-12 mb-4">
             <div class="section section-card p-5 blue with-border">
                 <div class="full-width">
                     <div class="header text-black text-center font-weight-bold orange p-1 with-border">
@@ -67,24 +67,24 @@
                         <table class="full-width with-border">
                             <thead>
                                 <tr>
-                                    <th class="yellow" scope="col" colspan="2">Assignment #1</th>
-                                    <th class="peach" scope="col" colspan="1">Time</th>
+                                    <th class="yellow with-border-bottom" scope="col" colspan="2">Assignment #1</th>
+                                    <th class="peach with-border-bottom with-border-left" scope="col" colspan="1">Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="green">Start Date</td>
-                                    <td class="white start p-0">
+                                    <td class="green with-border-bottom">Start Date</td>
+                                    <td class="white with-border-bottom with-border-left start p-0">
                                         <v-date-picker v-model="assignment.one.start" />
                                     </td>
-                                    <td class="light-peach">@{{ getTotalDays('one')  }}</td>
+                                    <td class="light-peach with-border-bottom with-border-left">@{{ getTotalDays('one')  }}</td>
                                 </tr>
                                 <tr>
                                     <td class="green">End Date</td>
-                                    <td class="white end">
+                                    <td class="white with-border-left end">
                                         <v-date-picker v-model="assignment.one.end" />
                                     </td>
-                                    <td class="light-peach">Days</td>
+                                    <td class="light-peach with-border-left">Days</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -93,24 +93,24 @@
                         <table class="full-width with-border">
                             <thead>
                                 <tr>
-                                    <th class="yellow" scope="col" colspan="2">Assignment #2</th>
-                                    <th class="peach" scope="col" colspan="1">Time</th>
+                                    <th class="yellow with-border-bottom" scope="col" colspan="2">Assignment #2</th>
+                                    <th class="peach with-border-bottom with-border-left" scope="col" colspan="1">Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="green">Start Date</td>
-                                    <td class="white start p-0">
+                                    <td class="green with-border-bottom">Start Date</td>
+                                    <td class="white with-border-bottom with-border-left start p-0">
                                         <v-date-picker v-model="assignment.two.start" />
                                     </td>
-                                    <td class="light-peach">@{{ getTotalDays('two')  }}</td>
+                                    <td class="light-peach with-border-bottom with-border-left">@{{ getTotalDays('two')  }}</td>
                                 </tr>
                                 <tr>
                                     <td class="green">End Date</td>
-                                    <td class="white end">
+                                    <td class="white with-border-left end">
                                         <v-date-picker v-model="assignment.two.end" />
                                     </td>
-                                    <td class="light-peach">Days</td>
+                                    <td class="light-peach with-border-left">Days</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -120,24 +120,24 @@
                         <table class="full-width with-border">
                             <thead>
                                 <tr>
-                                    <th class="yellow" scope="col" colspan="2">Assignment #3</th>
-                                    <th class="peach" scope="col" colspan="1">Time</th>
+                                    <th class="yellow with-border-bottom" scope="col" colspan="2">Assignment #3</th>
+                                    <th class="peach with-border-bottom with-border-left" scope="col" colspan="1">Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="green">Start Date</td>
-                                    <td class="white start p-0">
+                                    <td class="green with-border-bottom">Start Date</td>
+                                    <td class="white with-border-bottom with-border-left start p-0">
                                         <v-date-picker v-model="assignment.three.start" />
                                     </td>
-                                    <td class="light-peach">@{{ getTotalDays('three')  }}</td>
+                                    <td class="light-peach with-border-bottom with-border-left">@{{ getTotalDays('three')  }}</td>
                                 </tr>
                                 <tr>
                                     <td class="green">End Date</td>
-                                    <td class="white end">
+                                    <td class="white with-border-left end">
                                         <v-date-picker v-model="assignment.three.end" />
                                     </td>
-                                    <td class="light-peach">Days</td>
+                                    <td class="light-peach with-border-left">Days</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -145,24 +145,24 @@
                         <table class="full-width with-border">
                             <thead>
                                 <tr>
-                                    <th class="yellow" scope="col" colspan="2">Assignment #4</th>
-                                    <th class="peach" scope="col" colspan="1">Time</th>
+                                    <th class="yellow with-border-bottom" scope="col" colspan="2">Assignment #4</th>
+                                    <th class="peach with-border-bottom with-border-left" scope="col" colspan="1">Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="green">Start Date</td>
-                                    <td class="white start p-0">
+                                    <td class="green with-border-bottom">Start Date</td>
+                                    <td class="white with-border-bottom with-border-left start p-0">
                                         <v-date-picker v-model="assignment.four.start" />
                                     </td>
-                                    <td class="light-peach">@{{ getTotalDays('four')  }}</td>
+                                    <td class="light-peach with-border-bottom with-border-left">@{{ getTotalDays('four')  }}</td>
                                 </tr>
                                 <tr>
                                     <td class="green">End Date</td>
-                                    <td class="white end">
+                                    <td class="white with-border-left end">
                                         <v-date-picker v-model="assignment.four.end" />
                                     </td>
-                                    <td class="light-peach">Days</td>
+                                    <td class="light-peach with-border-left">Days</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -170,7 +170,7 @@
                 </div>
             </div>
 
-            <div class="section section-card p-5 orange mt-4 with-border">
+            <div class="section section-card p-5 orange mt-4 with-border page-break-always">
                 <div class="full-width">
                     <div class="header text-black text-center font-weight-bold blue p-1 with-border">
                         <label class="header-text header-1">The 7 Essay Steps</label>
@@ -186,20 +186,20 @@
                                         <td class="{{ $step['color'] }}-pure w-10-p text-white p-0-important" rowspan="4">
                                             <label class="vertical-text-1 text-center font-weight-bold">STEP {{ $step['id']}}</label>
                                         </td>
-                                        <td class="{{ $step['color'] }}-light p-2">Resources</td>
-                                        <td class="{{ $step['color'] }}-light p-2">Notes</td>
+                                        <td class="{{ $step['color'] }}-light p-2 with-border-bottom with-border-left">Resources</td>
+                                        <td class="{{ $step['color'] }}-light p-2 with-border-bottom with-border-left">Notes</td>
                                     </tr>
                                     <tr>
-                                        <td class="white"></td>
-                                        <td class="white"></td>
+                                        <td class="white with-border-bottom with-border-left"></td>
+                                        <td class="white with-border-bottom with-border-left"></td>
                                     </tr>
                                     <tr>
-                                        <td class="white"></td>
-                                        <td class="white"></td>
+                                        <td class="white with-border-bottom with-border-left"></td>
+                                        <td class="white with-border-bottom with-border-left"></td>
                                     </tr>
                                     <tr>
-                                        <td class="white"></td>
-                                        <td class="white"></td>
+                                        <td class="white with-border-bottom with-border-left"></td>
+                                        <td class="white with-border-bottom with-border-left"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -208,7 +208,7 @@
                 </div>
             </div>
 
-            <div class="footer section section-card mt-4 p-5"> 
+            <div class="footer section section-card mt-4 p-5" v-if="window.width > 991"> 
                 <label class="font-weight-bolder text-center full-width">
                     @2020 Dr Irene Dudley-Swarbrick, Al Rights Reserved
                 </label>
@@ -222,31 +222,31 @@
                         <thead>
                             <tr>
                                 <th class="{{ $step['color'] }}-pure text-white" scope="col" colspan="1">Step {{ $step['id'] }}</th>
-                                <th class="{{ $step['color'] }}-light" scope="col" colspan="2">{{ $step['name'] }}</th>
+                                <th class="{{ $step['color'] }}-light with-border-left" scope="col" colspan="2">{{ $step['name'] }}</th>
                             </tr>
                         </thead>
                     </table>
                     <table class="full-width with-border mt-2px">
                         <tbody>
                             <tr>
-                                <td class="green font-weight-bold">ASSIGNMENTS</td>
-                                <td class="green font-weight-bold">COMPLETION DATES</td>
+                                <td class="green font-weight-bold with-border-bottom">ASSIGNMENTS</td>
+                                <td class="green font-weight-bold with-border-left with-border-right with-border-bottom">COMPLETION DATES</td>
                             </tr>
                             <tr>
-                                <td class="dirty-green">Module #1</td>
-                                <td class="dirty-green">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'one') }}</td>
+                                <td class="dirty-green with-border-top">Module #1</td>
+                                <td class="dirty-green with-border-top with-border-left">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'one') }}</td>
                             </tr>
                             <tr>
-                                <td class="dirty-gray">Module #2</td>
-                                <td class="dirty-gray">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'two') }}</td>
+                                <td class="dirty-gray with-border-top">Module #2</td>
+                                <td class="dirty-gray with-border-top with-border-left">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'two') }}</td>
                             </tr>
                             <tr>
-                                <td class="dirty-green">Module #3</td>
-                                <td class="dirty-green">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'three') }}</td>
+                                <td class="dirty-green with-border-top">Module #3</td>
+                                <td class="dirty-green with-border-top with-border-left">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'three') }}</td>
                             </tr>
                             <tr>
-                                <td class="dirty-gray">Module #4</td>
-                                <td class="dirty-gray">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'four') }}</td>
+                                <td class="dirty-gray with-border-top">Module #4</td>
+                                <td class="dirty-gray with-border-top with-border-left">@{{ getCompletionDateByStep({!! $step['rate'] !!}, 'four') }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -257,6 +257,12 @@
                         <div class="pt-3 pb-3 white with-border-left with-border-right"></div>
                     @endif
                 @endforeach
+            </div>
+
+            <div class="footer section section-card mt-4 p-5" v-if="window.width < 992"> 
+                <label class="font-weight-bolder text-center full-width">
+                    @2020 Dr Irene Dudley-Swarbrick, Al Rights Reserved
+                </label>
             </div>
         </div>
     </div>

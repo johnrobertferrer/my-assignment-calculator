@@ -193,6 +193,10 @@ table thead tr th, table tbody tr td{
     border-right: 2px solid #000;
 }
 
+.with-border-top {
+    border-top: 2px solid #000;
+}
+
 .with-border-bottom {
     border-bottom: 2px solid #000;
 }
@@ -209,6 +213,11 @@ table tbody tr td {
     word-break: break-word;
 }
 
+.page-break-always {
+    page-break-before: always;
+    page-break-after: always;
+}
+// .html2canvas-container { width: 4000px !important; height: 4000px !important; }
 
 
 

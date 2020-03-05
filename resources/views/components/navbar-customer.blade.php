@@ -1,5 +1,5 @@
 @section('navbar')
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" data-html2canvas-ignore="true" v-if="navbar.visible">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('img/notebook.svg') }}" width="25px" alt="" class="mr-1">
@@ -21,8 +21,8 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item">
-                            <a href="{{ url('export-pdf') }}" class="nav-link">
+                        <li class="nav-item" @click="download">
+                            <a href="#" class="nav-link">
                                 <img src="{{ asset('img/export.svg') }}" width="25px" alt="" class="mr-1">
                                 Export PDF
                             </a>

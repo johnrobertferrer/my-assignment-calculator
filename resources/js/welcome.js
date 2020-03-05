@@ -1,5 +1,7 @@
 import VCalendar from 'v-calendar'
 import Moment from 'moment'
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
 
 window.Vue = require('vue');
 
@@ -12,7 +14,7 @@ let app = new Vue({
     el: '#app',
 
     mounted() {
-        this.preloader();
+        // this.preloader();
     },
 
     data() {
@@ -36,13 +38,28 @@ let app = new Vue({
                 }
             },
 
-            loadingStatus: false
+            navbar: {
+                visible: true
+            },
+
+            loadingStatus: false,
+
+            window: {
+                width: 0,
+                height: 0
+            }
         }
     },
 
+    created() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+
     methods: {
-        preloader() {
-            setTimeout(() => this.loadingStatus = true, 2500); 
+        handleResize() {
+            this.window.width = window.innerWidth;
+            this.window.height = window.innerHeight;
         },
 
         getTotalDays(number) {
@@ -56,15 +73,32 @@ let app = new Vue({
             let computedDays = Math.floor(this.getTotalDays(number) * rate);
             let completionDate = Moment(this.assignment[number].start).add(computedDays, 'days');
 
-            console.log('completionDate', completionDate);
-
             return completionDate === null ? '' : Moment(completionDate).format('MM/DD/YYYY');
-        }
-    },
+        },
 
-    computed: {
-        isLoading() {
-            return this.loadingStatus;
+        download() {
+            let that = this;
+
+            html2canvas(document.getElementById('app')).then(function(canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                var imgWidth = 205; 
+                var pageHeight = 295;  
+                var imgHeight = canvas.height * imgWidth / canvas.width;
+                var heightLeft = imgHeight;
+                var doc = new jsPDF('p', 'mm');
+                var position = that.window.width >= 992 ? 1 : 0;
+
+                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                doc.addPage();
+                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                }
+                doc.save( 'file.pdf');
+            });
         }
     }
 });
