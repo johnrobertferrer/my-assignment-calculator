@@ -42,11 +42,19 @@ let app = new Vue({
                 visible: true
             },
 
+            footer: {
+                visible: false
+            },
+
             loadingStatus: false,
 
             window: {
                 width: 0,
                 height: 0
+            },
+
+            progressbar: {
+                visible: false
             }
         }
     },
@@ -78,27 +86,46 @@ let app = new Vue({
 
         download() {
             let that = this;
-
-            html2canvas(document.getElementById('app')).then(function(canvas) {
+            that.footer.visible = true;
+            that.progressbar.visible = true;
+            window.innerWidth = 1600;
+            window.innerHeight = 2200;
+            html2canvas(document.getElementById('app'), {
+                width: 1600,
+                height: 2200
+            }).then(function(canvas) {
+                console.log(canvas);
                 var imgData = canvas.toDataURL('image/png');
-                var imgWidth = 205; 
+                var imgWidth = 210; 
                 var pageHeight = 295;  
-                var imgHeight = canvas.height * imgWidth / canvas.width;
-                var heightLeft = imgHeight;
+                // var imgHeight = canvas.height * imgWidth / canvas.width;
+                // var heightLeft = imgHeight;
                 var doc = new jsPDF('p', 'mm');
-                var position = that.window.width >= 992 ? 1 : 0;
+                var position = 0;
 
-                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
+                doc.addImage(imgData, 'PNG', 0, position, imgWidth, pageHeight);
+                // heightLeft -= pageHeight;
 
-                while (heightLeft >= 0) {
-                position = heightLeft - imgHeight;
-                doc.addPage();
-                doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-                }
-                doc.save( 'file.pdf');
+                // while (heightLeft >= 0) {
+                // position = heightLeft - imgHeight;
+                // doc.addPage();
+                // doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                // heightLeft -= pageHeight;
+                // }
+                doc.save( 'my-assignment-calculator-' + Moment().unix() + '.pdf');
+                that.progressbar.visible = false;
+                that.footer.visible = false;
             });
+        }
+    },
+
+    computed: {
+        showFooter() {
+            console.log("w: ", this.window.width);
+            if(this.footer.visible) {
+                return true;
+            }
+            return this.window.width > 991;
         }
     }
 });

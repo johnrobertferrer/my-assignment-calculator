@@ -53,6 +53,13 @@
 
 @section('content')
 <div class="container-fluid">
+    <div v-if="progressbar.visible">
+        <div class="wrapper mb-4">
+            <div class="progress-bar">
+                <span class="progress-bar-fill" style="width: 100%;">Generating ...</span>
+            </div>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12 mb-4">
             <div class="section section-card p-5 blue with-border">
@@ -208,7 +215,7 @@
                 </div>
             </div>
 
-            <div class="footer section section-card mt-4 p-5" v-if="window.width > 991"> 
+            <div class="footer section section-card mt-4 p-5" v-if="showFooter"> 
                 <label class="font-weight-bolder text-center full-width">
                     @2020 Dr Irene Dudley-Swarbrick, Al Rights Reserved
                 </label>
@@ -259,7 +266,7 @@
                 @endforeach
             </div>
 
-            <div class="footer section section-card mt-4 p-5" v-if="window.width < 992"> 
+            <div class="footer section section-card mt-4 p-5" v-if="window.width < 992" data-html2canvas-ignore="true"> 
                 <label class="font-weight-bolder text-center full-width">
                     @2020 Dr Irene Dudley-Swarbrick, Al Rights Reserved
                 </label>
