@@ -95,23 +95,14 @@ let app = new Vue({
                 height: 2200
             }).then(function(canvas) {
                 console.log(canvas);
-                var imgData = canvas.toDataURL('image/png');
+                var imgData = canvas.toDataURL('image/jpeg');
                 var imgWidth = 210; 
                 var pageHeight = 295;  
-                // var imgHeight = canvas.height * imgWidth / canvas.width;
-                // var heightLeft = imgHeight;
                 var doc = new jsPDF('p', 'mm');
                 var position = 0;
 
-                doc.addImage(imgData, 'PNG', 0, position, imgWidth, pageHeight);
-                // heightLeft -= pageHeight;
+                doc.addImage(imgData, 'jpeg', 0, position, imgWidth, pageHeight);
 
-                // while (heightLeft >= 0) {
-                // position = heightLeft - imgHeight;
-                // doc.addPage();
-                // doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                // heightLeft -= pageHeight;
-                // }
                 doc.save( 'my-assignment-calculator-' + Moment().unix() + '.pdf');
                 that.progressbar.visible = false;
                 that.footer.visible = false;
@@ -121,7 +112,6 @@ let app = new Vue({
 
     computed: {
         showFooter() {
-            console.log("w: ", this.window.width);
             if(this.footer.visible) {
                 return true;
             }
