@@ -3,6 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="My Assignment Calculator">
+    <meta name="description" content="A stand-alone web application calculator that calculates the remaining dates that assignment should be passed.">
+    <meta name="keywords" content="My, Assignment, Calculator, My assignment calculator, fiverr, john, john ferrer">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="John Robert S. Ferrer">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
