@@ -16,12 +16,6 @@ class CustomerController extends Controller
 
         $result = Customer::firstOrCreate($data);
 
-        // $result = Customer::create([
-        //     'firstname' => $request->data['firstname'],
-        //     'lastname' => $request->data['lastname'],
-        //     'email' => $request->data['email']
-        // ]);
-
         return $result;
     }
 }

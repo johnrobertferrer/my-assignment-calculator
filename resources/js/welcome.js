@@ -19,7 +19,7 @@ let app = new Vue({
     },
 
     mounted() {
-        setTimeout(() => this.loadingStatus = true, 0);
+        setTimeout(() => this.loadingStatus = true, 2500);
     },
 
     data() {
