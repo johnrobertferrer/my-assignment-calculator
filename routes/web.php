@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'MainController@index');
-
 Route::get('/export-pdf', 'MainController@exportPdf');
+Route::post('/store-customer-info', 'CustomerController@store');
 
 Auth::routes();
 

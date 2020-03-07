@@ -233,6 +233,10 @@ table tbody tr td {
     page-break-before: always;
     page-break-after: always;
 }
+
+.w-33 {
+    width: 33% !important;
+}
 // .html2canvas-container { width: 4000px !important; height: 4000px !important; }
 
 
@@ -329,7 +333,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
     table tr td, table tr th {
         text-align: center;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     table thead tr th, table tbody tr td{

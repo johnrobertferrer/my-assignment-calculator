@@ -2,6 +2,7 @@ import VCalendar from 'v-calendar'
 import Moment from 'moment'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
+import modal from './components/Modal.vue'
 
 window.Vue = require('vue');
 
@@ -13,8 +14,12 @@ window.Moment = Moment;
 let app = new Vue({
     el: '#app',
 
+    components: {
+        modal
+    },
+
     mounted() {
-        // this.preloader();
+        setTimeout(() => this.loadingStatus = true, 0);
     },
 
     data() {
@@ -55,6 +60,14 @@ let app = new Vue({
 
             progressbar: {
                 visible: false
+            },
+
+            modal: {
+                customerInfo: false
+            },
+
+            success: {
+                message: []
             }
         }
     },
@@ -94,7 +107,6 @@ let app = new Vue({
                 width: 1600,
                 height: 2200
             }).then(function(canvas) {
-                console.log(canvas);
                 var imgData = canvas.toDataURL('image/jpeg');
                 var imgWidth = 210; 
                 var pageHeight = 295;  
@@ -103,10 +115,33 @@ let app = new Vue({
 
                 doc.addImage(imgData, 'jpeg', 0, position, imgWidth, pageHeight);
 
-                doc.save( 'my-assignment-calculator-' + Moment().unix() + '.pdf');
+                // doc.save( 'my-assignment-calculator-' + Moment().unix() + '.pdf');
+                // doc.output('dataurlnewwindow');
+                window.open(doc.output('bloburl'))
                 that.progressbar.visible = false;
                 that.footer.visible = false;
             });
+        },
+
+        showModal() {
+            this.modal.customerInfo = true;
+        },
+
+        closeModal() {
+            this.modal.customerInfo = false;
+        },
+
+        showSuccessResult(result) {
+            this.download();
+            this.success.message.push(result);
+        }
+    },
+
+    watch: {
+        'success.message': function(messages) {
+            if(messages.length > 0) {
+                setTimeout(() => this.success.message = [], 5000);
+            }
         }
     },
 

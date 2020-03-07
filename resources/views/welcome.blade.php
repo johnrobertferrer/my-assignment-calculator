@@ -61,6 +61,11 @@
         </div>
     </div>
     <div class="row justify-content-center">
+        <div class="col-12" data-html2canvas-ignore="true">
+            <div v-for="message in success.message" class="alert alert-success" role="alert">
+                Successfully recorded this student information: [@{{ message }}]
+            </div>
+        </div>
         <div class="col-lg-8 col-md-12 mb-4">
             <div class="section section-card p-5 blue with-border">
                 <div class="full-width">
@@ -274,6 +279,15 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('modals')
+    <modal
+        data-html2canvas-ignore="true"
+        v-show="modal.customerInfo"
+        @submitted="showSuccessResult"
+        @close="closeModal"
+    />
 @endsection
 
 @section('script')

@@ -25,24 +25,19 @@
     <body>
 @endif
     <div id="app">
-{{--         
-        <div v-show="!loadingStatus">
-            @yield('navbar')
-            
-            <main class="py-4">
-                @yield('content')
-            </main>
-        </div>
-
         @if (isset($background))
-        <div v-if="loadingStatus">
-            <div class="lds-circle"><div></div></div>
-        </div>
-        @endif --}}
-        @yield('navbar')
+            <div style="width: 100vw; height: 100vh;" v-show="!loadingStatus">
+                <div class="lds-circle"><div></div></div>
+            </div>
+        @endif
 
-        <main class="py-4">
+        <div v-show="loadingStatus">
+            @yield('navbar')
+        </div>
+
+        <main class="py-4" v-show="loadingStatus">
             @yield('content')
+            @yield('modals')
         </main>
     </div>
 

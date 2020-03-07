@@ -21,7 +21,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item" @click="download">
+                        <li class="nav-item" @click="showModal">
                             <a href="#" class="nav-link">
                                 <img src="{{ asset('img/export.svg') }}" width="25px" alt="" class="mr-1">
                                 Export PDF
