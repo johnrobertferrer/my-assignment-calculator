@@ -220,7 +220,7 @@
                 </div>
             </div>
 
-            <div class="footer section section-card mt-4 p-5" v-if="showFooter"> 
+            <div class="footer section section-card mt-4 p-5" v-show="showFooter"> 
                 <label class="font-weight-bolder text-center full-width">
                     @2020 Dr Irene Dudley-Swarbrick, Al Rights Reserved
                 </label>

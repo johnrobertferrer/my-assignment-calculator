@@ -99,7 +99,6 @@ let app = new Vue({
 
         download() {
             let that = this;
-            that.footer.visible = true;
             that.progressbar.visible = true;
             window.innerWidth = 1600;
             window.innerHeight = 2200;
@@ -119,15 +118,16 @@ let app = new Vue({
                 // doc.output('dataurlnewwindow');
                 window.open(doc.output('bloburl'))
                 that.progressbar.visible = false;
-                that.footer.visible = false;
             });
         },
 
         showModal() {
             this.modal.customerInfo = true;
+            this.footer.visible = true;
         },
 
         closeModal() {
+            this.footer.visible = false;
             this.modal.customerInfo = false;
         },
 
