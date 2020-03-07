@@ -9,8 +9,8 @@ class CustomerController extends Controller
 {
     public function store(Request $request) {
         $data = $request->validate([
-            'firstname' => 'required|unique:customers',
-            'lastname'  => 'required|unique:customers',
+            'firstname' => 'required',
+            'lastname'  => 'required',
             'email'     => 'required|unique:customers',
         ]);
 
