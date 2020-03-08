@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('home', compact('customers'));
+        return view('layouts.taskwell', compact('customers'));
     }
 }
