@@ -336,6 +336,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
         padding-left: 0px;
         padding-right: 0px;
     }
+
+    .w-15-p {
+        width: 15%;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -368,6 +372,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
     .pr-15 {
         padding-right: 15px;
+    }
+
+    .w-15-p {
+        width: 10%;
     }
 }
 

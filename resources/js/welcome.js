@@ -161,6 +161,7 @@ let app = new Vue({
         download() {
             let that = this;
             that.progressbar.visible = true;
+            window.scrollTo({ top: 0 });
             window.innerWidth = 1600;
             window.innerHeight = 2200;
             html2canvas(document.getElementById('app'), {
