@@ -12,7 +12,7 @@ class CustomerController extends Controller
         $data = $request->validate([
             'firstname' => 'required',
             'lastname'  => 'required',
-            'email'     => 'required|unique:customers',
+            'email'     => 'required', // unique:customers
         ]);
 
         $result = Customer::firstOrCreate($data);

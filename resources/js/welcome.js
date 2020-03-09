@@ -21,7 +21,7 @@ let app = new Vue({
 
     mounted() {
         this.load();
-        setTimeout(() => this.loadingStatus = true, 200);
+        setTimeout(() => this.loadingStatus = true, 1900);
     },
 
     data() {
@@ -104,7 +104,7 @@ let app = new Vue({
             .then(response => {
                 that.steps = response.data.steps;
                 that.reference = response.data.reference;
-                that.loadingStatus = true;
+                // that.loadingStatus = true;
             })
             .catch(e => {
                 that.errors.message.push(e);
@@ -117,16 +117,16 @@ let app = new Vue({
 
             switch (type) {
                 case 'pure':
-                    className = "step-" + stepId + "-pure w-10-p text-white p-0-important";
+                    className = "step-" + stepId + "-pure w-15-p text-white p-0-important";
                     break;
                 case 'light':
                     className = "step-" + stepId + "-light p-2 with-border-bottom with-border-left";
                     break;
                 case 'right-pure':
-                    className = "step-" + stepId + "-pure text-white";
+                    className = "step-" + stepId + "-pure text-white w-35";
                     break;
                 case 'right-light':
-                    className = "step-" + stepId + "-light with-border-left";
+                    className = "step-" + stepId + "-light with-border-left w-65";
                     break;
             }
 

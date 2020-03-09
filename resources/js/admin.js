@@ -40,7 +40,6 @@ let app = new Vue({
                 'customSettings': that.customSettings
             })
             .then(response => {
-                console.log(response);
                 that.message.success.push(response.data);
                 that.loadingStatus = true;
                 that.load();
