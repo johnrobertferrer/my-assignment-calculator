@@ -32,7 +32,7 @@
     <body>
 @endif
     <div id="app">
-        @if (isset($background))
+        @if (isset($loadingStatus))
             <div style="width: 100vw; height: 100vh;" v-show="!loadingStatus">
                 <div class="lds-circle"><div></div></div>
             </div>

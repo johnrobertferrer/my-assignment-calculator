@@ -1,4 +1,4 @@
-@extends('layouts.app', ['background' => asset('img/pattern.svg')])
+@extends('layouts.app', ['background' => asset('img/pattern.svg'), 'loadingStatus' => true])
 
 @if ($withNav)
     @extends('components.navbar-customer')
@@ -62,8 +62,13 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-12" data-html2canvas-ignore="true">
-            <div v-for="message in success.message" class="alert alert-success" role="alert">
-                Successfully recorded this student information: [@{{ message }}]
+            <div v-for="success_message in success.message" class="alert alert-success" role="alert">
+                Successfully recorded this student information: [@{{ success_message }}]
+            </div>
+        </div>
+        <div class="col-12" data-html2canvas-ignore="true">
+            <div v-for="error_message in errors.message" class="alert alert-danger" role="alert">
+                @{{ error_message }}
             </div>
         </div>
         <div class="col-lg-8 col-md-12 mb-4">
@@ -75,7 +80,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-12 mt-4">
+                    <div class="col-lg-6 col-md-12 mt-4 plr-0 pr-15">
                         <table class="full-width with-border">
                             <thead>
                                 <tr>
@@ -128,7 +133,7 @@
                         </table>
                     </div>
 
-                    <div class="col-lg-6 col-md-12 mt-4">
+                    <div class="col-lg-6 col-md-12 mt-4 plr-0 pl-15">
                         <table class="full-width with-border">
                             <thead>
                                 <tr>
@@ -190,37 +195,35 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 mt-4">
-                        @foreach ($steps as $step)
-                            <table class="full-width with-border mt-2px">
-                                <tbody>
-                                    <tr>
-                                        <td class="{{ $step['color'] }}-pure w-10-p text-white p-0-important" rowspan="4">
-                                            <label class="vertical-text-1 text-center font-weight-bold">STEP {{ $step['id']}}</label>
-                                        </td>
-                                        <td class="{{ $step['color'] }}-light p-2 with-border-bottom with-border-left">Resources</td>
-                                        <td class="{{ $step['color'] }}-light p-2 with-border-bottom with-border-left">Notes</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="white with-border-bottom with-border-left"></td>
-                                        <td class="white with-border-bottom with-border-left"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="white with-border-bottom with-border-left"></td>
-                                        <td class="white with-border-bottom with-border-left"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="white with-border-bottom with-border-left"></td>
-                                        <td class="white with-border-bottom with-border-left"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        @endforeach
+                    <div class="col-lg-12 col-md-12 mt-4 plr-0">
+                        <table class="full-width with-border mt-2px" v-for="stepId in reference.stepIds">
+                            <tbody>
+                                <tr>
+                                    <td :class="getStepHeaderClassName(stepId, 'pure')" rowspan="4">
+                                        <label class="vertical-text-1 text-center font-weight-bold">STEP @{{ stepId }}</label>
+                                    </td>
+                                    <td :class="getStepHeaderClassName(stepId, 'light')">Resources</td>
+                                    <td :class="getStepHeaderClassName(stepId, 'light')">Notes</td>
+                                </tr>
+                                <tr>
+                                    <td class="white with-border-bottom with-border-left w-50 p-2"> @{{ getStepData(stepId, '1', 'resources') }} </td>
+                                    <td class="white with-border-bottom with-border-left w-50 p-2"> @{{ getStepData(stepId, '1', 'notes') }} </td>
+                                </tr>
+                                <tr>
+                                    <td class="white with-border-bottom with-border-left w-50 p-2"> @{{ getStepData(stepId, '2', 'resources') }} </td>
+                                    <td class="white with-border-bottom with-border-left w-50 p-2"> @{{ getStepData(stepId, '2', 'notes') }} </td>
+                                </tr>
+                                <tr>
+                                    <td class="white with-border-bottom with-border-left w-50 p-2"> @{{ getStepData(stepId, '3', 'resources') }} </td>
+                                    <td class="white with-border-bottom with-border-left w-50 p-2"> @{{ getStepData(stepId, '3', 'notes') }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <div class="footer section section-card mt-4 p-5" v-show="showFooter"> 
+            <div class="footer section section-card mt-4" v-show="showFooter"> 
                 <label class="font-weight-bolder text-center full-width">
                     @2020 Dr Irene Dudley-Swarbrick, Al Rights Reserved
                 </label>
@@ -233,8 +236,8 @@
                     <table class="full-width with-border">
                         <thead>
                             <tr>
-                                <th class="{{ $step['color'] }}-pure text-white" scope="col" colspan="1">Step {{ $step['id'] }}</th>
-                                <th class="{{ $step['color'] }}-light with-border-left" scope="col" colspan="2">{{ $step['name'] }}</th>
+                                <th :class="getStepHeaderClassName({{ $step['id'] }}, 'right-pure')" scope="col" colspan="1">Step {{ $step['id'] }}</th>
+                                <th :class="getStepHeaderClassName({{ $step['id'] }}, 'right-light')" scope="col" colspan="2">{{ $step['name'] }}</th>
                             </tr>
                         </thead>
                     </table>

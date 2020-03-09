@@ -26,59 +26,59 @@
     background: #ffcc99;
 }
 
-.violet-pure {
+.step-1-pure {
     background: #9966ff;
 }
 
-.violet-light {
+.step-1-light {
     background: #cc99ff;
 }
 
-.gold-pure {
+.step-2-pure {
     background: #ffc000;
 }
 
-.gold-light {
+.step-2-light {
     background: #ffcc99;
 }
 
-.blue-pure {
+.step-3-pure {
     background: #00b0f0;
 }
 
-.blue-light {
+.step-3-light {
     background: #4ed0ff;
 }
 
-.pink-pure {
+.step-4-pure {
     background: #ff33cc;
 }
 
-.pink-light {
+.step-4-light {
     background: #ff99ff;
 }
 
-.green-pure {
+.step-5-pure {
     background: #00b050;
 }
 
-.green-light {
+.step-5-light {
     background: #92d050;
 }
 
-.indigo-pure {
+.step-6-pure {
     background: #9966ff;
 }
 
-.indigo-light {
+.step-6-light {
     background: #9999ff;
 }
 
-.peach-pure {
+.step-7-pure {
     background: #ff9966;
 }
 
-.peach-light {
+.step-7-light {
     background: #ffcc99;
 }
 
@@ -237,8 +237,26 @@ table tbody tr td {
 .w-33 {
     width: 33% !important;
 }
-// .html2canvas-container { width: 4000px !important; height: 4000px !important; }
 
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;  
+}
+
+:-ms-input-placeholder {  
+    text-align: center; 
+}
+
+input::placeholder {
+    text-align: center;
+}
 
 
 
@@ -297,6 +315,19 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     .vertical-text-1 {
         font-size: 0.5rem;
     }
+
+    .pl-15 {
+        padding-left: 0px;
+    }
+
+    .pr-15 {
+        padding-right: 0px;
+    }
+
+    .plr-0 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -321,6 +352,14 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
     .vertical-text-1 {
         font-size: 0.8rem;
+    }
+
+    .pl-15 {
+        padding-left: 15px;
+    }
+
+    .pr-15 {
+        padding-right: 15px;
     }
 }
 

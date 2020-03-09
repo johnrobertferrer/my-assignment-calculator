@@ -3,6 +3,7 @@ import Moment from 'moment'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 import modal from './components/Modal.vue'
+import Axios from 'axios'
 
 window.Vue = require('vue');
 
@@ -19,7 +20,8 @@ let app = new Vue({
     },
 
     mounted() {
-        setTimeout(() => this.loadingStatus = true, 2500);
+        this.load();
+        setTimeout(() => this.loadingStatus = true, 200);
     },
 
     data() {
@@ -68,7 +70,23 @@ let app = new Vue({
 
             success: {
                 message: []
+            },
+
+            errors: {
+                message: []
+            },
+
+            steps: [],
+
+            reference: {
+                stepIds: []
             }
+
+            // customSettings: [
+            //     {
+            //         name: 'steps'
+            //     }
+            // ]
         }
     },
 
@@ -78,6 +96,49 @@ let app = new Vue({
     },
 
     methods: {
+        load() {
+            let that = this;
+            that.loadingStatus = false;
+
+            Axios.get(`/fetch-customer-settings`)
+            .then(response => {
+                that.steps = response.data.steps;
+                that.reference = response.data.reference;
+                that.loadingStatus = true;
+            })
+            .catch(e => {
+                that.errors.message.push(e);
+                that.loadingStatus = true;
+            })
+        },
+
+        getStepHeaderClassName(stepId, type) {
+            let className = '';
+
+            switch (type) {
+                case 'pure':
+                    className = "step-" + stepId + "-pure w-10-p text-white p-0-important";
+                    break;
+                case 'light':
+                    className = "step-" + stepId + "-light p-2 with-border-bottom with-border-left";
+                    break;
+                case 'right-pure':
+                    className = "step-" + stepId + "-pure text-white";
+                    break;
+                case 'right-light':
+                    className = "step-" + stepId + "-light with-border-left";
+                    break;
+            }
+
+            return className;
+        },
+
+        getStepData(stepId, rowId, type) {
+            let step = this.steps.find(step => step.step_id == stepId && step.row_id == rowId);
+
+            return step[type];
+        },
+
         handleResize() {
             this.window.width = window.innerWidth;
             this.window.height = window.innerHeight;
@@ -110,13 +171,13 @@ let app = new Vue({
                 var imgWidth = 210; 
                 var pageHeight = 295;  
                 var doc = new jsPDF('p', 'mm');
-                var position = 0;
+                var position = 2;
 
                 doc.addImage(imgData, 'jpeg', 0, position, imgWidth, pageHeight);
 
-                // doc.save( 'my-assignment-calculator-' + Moment().unix() + '.pdf');
+                doc.save( 'my-assignment-calculator-' + Moment().unix() + '.pdf');
                 // doc.output('dataurlnewwindow');
-                window.open(doc.output('bloburl'))
+                // window.open(doc.output('bloburl'))
                 that.progressbar.visible = false;
             });
         },
@@ -142,6 +203,11 @@ let app = new Vue({
             if(messages.length > 0) {
                 setTimeout(() => this.success.message = [], 5000);
             }
+        },
+        'errors.message': function(messages) {
+            if(messages.length > 0) {
+                setTimeout(() => this.errors.message = [], 5000);
+            }
         }
     },
 
@@ -151,6 +217,10 @@ let app = new Vue({
                 return true;
             }
             return this.window.width > 991;
+        },
+
+        groupBySteps() {
+            return groupBy(this.steps, step => step.step_id);
         }
     }
 });

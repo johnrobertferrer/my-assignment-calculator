@@ -11,10 +11,13 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'MainController@index');
 Route::get('/export-pdf', 'MainController@exportPdf');
 Route::post('/store-customer-info', 'CustomerController@store');
-
-Auth::routes();
+Route::get('/fetch-customer-settings', 'CustomerController@fetchCustomerSettings');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/fetch-admin-settings', 'HomeController@fetch');
+Route::post('/update-admin-settings', 'HomeController@update');

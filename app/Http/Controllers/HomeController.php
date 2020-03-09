@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Step;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +26,52 @@ class HomeController extends Controller
     public function index()
     {
         $customers = Customer::all();
+
         return view('home', compact('customers'));
+    }
+
+    /**
+     * Fetch the admin settings.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function fetch()
+    {
+        $steps = Step::all([
+            'step_id',
+            'row_id',
+            'resources',
+            'notes',
+            'availability'
+        ]);
+
+        return $steps;
+    }
+
+    /**
+     * Updates the admin settings.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function update(Request $request)
+    {
+        $request->validate([
+            'steps' => 'required',
+            'customSettings'  => 'required'
+        ]);
+
+        $steps = $request->get('steps');
+
+        foreach($steps as $step) {
+            Step::where('step_id', $step['step_id'])
+                ->where('row_id', $step['row_id'])
+                ->update([
+                'resources' => $step['resources'],
+                'notes' => $step['notes'],
+                'availability' => $step['availability']
+                ]);
+        }
+
+        return "Successfully Saved And Applied!";
     }
 }
