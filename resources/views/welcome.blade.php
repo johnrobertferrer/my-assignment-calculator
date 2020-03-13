@@ -1,4 +1,10 @@
-@extends('layouts.app', ['background' => asset('img/pattern.svg'), 'loadingStatus' => true])
+@extends('layouts.app', [
+    'background' => asset('img/pattern.svg'), 
+    'loadingStatus' => true,
+    'fontType' => $fontType,
+    'fontSafe' => $fontSafe,
+    'customFontName' => $customFontName
+])
 
 @if ($withNav)
     @extends('components.navbar-customer')

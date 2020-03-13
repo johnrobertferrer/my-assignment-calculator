@@ -20,13 +20,14 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
-                    @guest
+                    
                         <li class="nav-item" @click="showModal">
                             <a href="#" class="nav-link">
                                 <img src="{{ asset('img/export.svg') }}" width="25px" alt="" class="mr-1">
                                 Export PDF
                             </a>
                         </li>
+                    @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">
                                 <img src="{{ asset('img/login.svg') }}" width="25px" alt="" class="mr-1">
@@ -34,6 +35,14 @@
                             </a>
                         </li>
                     @endguest
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">
+                                <img src="{{ asset('img/login.svg') }}" width="25px" alt="" class="mr-1">
+                                {{ __('Return Home') }}
+                            </a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>

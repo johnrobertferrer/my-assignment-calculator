@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\CustomFont;
 use App\Step;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,15 @@ class HomeController extends Controller
             'availability'
         ]);
 
-        return $steps;
+        $oldCustomFonts = CustomFont::all([
+            'name',
+            'path_location'
+        ]);
+
+        return [
+            'steps' => $steps,
+            'oldCustomFonts' => $oldCustomFonts
+        ];
     }
 
     /**

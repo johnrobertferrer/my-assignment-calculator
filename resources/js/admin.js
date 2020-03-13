@@ -18,7 +18,14 @@ let app = new Vue({
                 errors: []
             },
             steps: [],
-            customSettings: ['1']
+            customSettings: ['1'],
+            font: {
+                file: '',
+                font_type: 1,
+                font_safe: 'Nunito',
+                custom_font_name: '',
+                old_custom_font: ''
+            }
         }
     },
 
@@ -56,7 +63,8 @@ let app = new Vue({
 
             Axios.get(`/fetch-admin-settings`)
             .then(response => {
-                that.steps = response.data;
+                that.steps = response.data.steps;
+                that.oldCustomFonts = response.data.oldCustomFonts;
                 that.loadingStatus = true;
             })
             .catch(e => {
@@ -71,6 +79,74 @@ let app = new Vue({
 
         setPlaceholderText(step, type) {
             return "Enter " + type + " for Step #" + step.step_id + " and Row #" + step.row_id;
+        },
+
+        onFileChange(e){
+            console.log(e.target.files[0]);
+            this.font.file = e.target.files[0];
+        },
+
+        formSubmit() {
+            let that = this;
+
+            console.log(that.font);
+
+            if (that.font.font_type == 2) {
+                Axios.post('/custom-settings-natural-font-type', {
+                    font_safe: that.font.font_safe,
+                    font_type: that.font.font_type
+                })
+                .then(function (response) {
+                    that.message.success.push(response.data.success);
+                })
+                .catch(function (error) {
+                    that.message.errors.push(error);
+                });
+            } else if (that.font.font_type == 3) {
+                Axios.post('/custom-settings-old-custom-font-type', {
+                    old_custom_font: that.font.old_custom_font,
+                    font_type: that.font.font_type
+                })
+                .then(function (response) {
+                    that.message.success.push(response.data.success);
+                })
+                .catch(function (error) {
+                    that.message.errors.push(error);
+                });
+            } else if (that.font.font_type == 1) {
+                const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
+
+                console.log("custom font");
+
+                if (this.font.file == "") {
+                    that.message.errors.push("No selected custom font file. Please select first a valid custom font file.");
+                }
+
+                if(this.font.custom_font_name == "") {
+                    that.message.errors.push("Custom font name is required.");
+                    return false;
+                }
+
+                let formData = new FormData();
+
+                formData.append('file', this.font.file);
+                formData.append('name', this.font.custom_font_name);
+
+                Axios.post('/formSubmit', formData, config)
+                .then(function (response) {
+                    that.message.success.push(response.data.success);
+                    setTimeout(() => location.reload() , 1000);
+                })
+                .catch(function (error) {
+                    if(error.request.response == '{"message":"The given data was invalid.","errors":{"name":["The name has already been taken."]}}') {
+                        that.message.errors.push('Custom Font Name is already used. Please, choose another custom name.');
+                    } else{
+                        that.message.errors.push('Font file extension format must be (otf, ttf, eol, woff, woff2).');
+                    }
+                });
+            }
         }
     },
 

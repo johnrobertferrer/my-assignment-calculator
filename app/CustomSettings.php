@@ -4,19 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Step extends Model
+class CustomSettings extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'steps';
+    protected $table = 'custom_settings';
     protected $fillable = [
-        'step_id',
-        'row_id',
-        'resources',
-        'notes',
+        'name',
+        'alias',
+        'value',
         'availability'
     ];
 }

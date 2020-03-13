@@ -21,3 +21,8 @@ Route::get('/fetch-customer-settings', 'CustomerController@fetchCustomerSettings
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/fetch-admin-settings', 'HomeController@fetch');
 Route::post('/update-admin-settings', 'HomeController@update');
+
+Route::post('/formSubmit','FileController@formSubmit');
+
+Route::post('/custom-settings-natural-font-type','CustomSettingsController@storeNaturalFontType');
+Route::post('/custom-settings-old-custom-font-type','CustomSettingsController@storeOldCustomFontType');

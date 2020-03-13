@@ -15,16 +15,48 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    @if (isset($fontType))
+        @if ($fontType == "1" || $fontType == "3")
+            <style>
+                @font-face {
+                    font-family: 'CustomFont';
+                    src: url('{{ asset("$customFontName.eot") }}'); /* IE9 Compat Modes */
+                    src: url('{{ asset("$customFontName.eot?#iefix") }}') format('embedded-opentype'), /* IE6-IE8 */
+                        url('{{ asset("$customFontName.woff2") }}') format('woff2'), /* Super Modern Browsers */
+                        url('{{ asset("$customFontName.woff") }}') format('woff'), /* Pretty Modern Browsers */
+                        url('{{ asset("$customFontName.ttf") }}')  format('truetype'), /* Safari, Android, iOS */
+                        url('{{ asset("$customFontName.svg#svgFontName") }}') format('svg'); /* Legacy iOS */
+                }
+            </style>
+        @endif
+    @endif
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
+    {{-- Custom Style --}}
+    @if (isset($fontType))
+        @if ($fontType == "1" || $fontType == "3")
+            <style>
+                body {
+                    font-family: 'CustomFont' !important;
+                }
+            </style>
+        @else
+            <style>
+                body {
+                    font-family: "{{ $fontSafe }}" !important;
+                }
+            </style>
+        @endif
+    @endif
 </head>
 @if (isset($background))
     <body style="background: url( {{ $background }});">
@@ -49,5 +81,7 @@
     </div>
 
     @yield('script')
+   
+
 </body>
 </html>

@@ -30,7 +30,7 @@
 
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-student-information" role="tabpanel" aria-labelledby="student-information-tab">
-                    <div style="max-height: 70vh; overflow-y: auto;">
+                    <div>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -56,35 +56,79 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-contents" role="tabpanel" aria-labelledby="contents-tab">
-                    <div style="max-height: 70vh; overflow-y: auto;">
+                    <div>
                         <div class="row m-0 mb-3 text-center border border-dark font-weight-bold pt-2 pb-2">
-                            <div class="col-lg-2 col-md-12">Step</div>
-                            <div class="col-lg-2 col-md-12 border-left">Row</div>
+                            <div class="col-lg-2 col-md-6 col-6">Step #</div>
+                            <div class="col-lg-2 col-md-6 col-6 border-left">Row #</div>
                             <div class="col-lg-4 col-md-12 border-left">Resources</div>
                             <div class="col-lg-4 col-md-12 border-left">Notes</div>
                         </div>
                         <div v-for="step in steps">
                             <hr v-if="showLineBreak(step)">
                             <div class="row pt-2 pb-2 m-0 mb-2 border border-dark text-center">
-                                <div class="col-lg-2 col-md-12 border-left mt-2">Step @{{ step.step_id }}</div>
-                                <div class="col-lg-2 col-md-12 border-left mt-2">Row @{{ step.row_id }}</div>
-                                <div class="col-lg-4 col-md-12 border-left mt-2">
-                                    <input type="text" class="w-100" v-model="step.resources" :placeholder="setPlaceholderText(step, 'Resources')">
+                                <div class="col-lg-2 col-md-6 col-6 border-left mt-2 pt-1 pb-1">Step @{{ step.step_id }}</div>
+                                <div class="col-lg-2 col-md-6 col-6 border-left mt-2 pt-1 pb-1">Row @{{ step.row_id }}</div>
+                                <div class="col-lg-4 col-md-12 border-left pt-1 pb-1">
+                                    <input type="text" class="w-100 form-control" v-model="step.resources" :placeholder="setPlaceholderText(step, 'Resources')">
                                 </div>
-                                <div class="col-lg-4 col-md-12 mt-2">
-                                    <input type="text" class="w-100" v-model="step.notes" :placeholder="setPlaceholderText(step, 'Notes')">
+                                <div class="col-lg-4 col-md-12 pt-1 pb-1">
+                                    <input type="text" class="w-100 form-control" v-model="step.notes" :placeholder="setPlaceholderText(step, 'Notes')">
                                 </div>
                             </div>
                         </div>
+                        <button class="mt-3 btn btn-block btn-primary" @click="update()">Save and Apply Changes</button>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-custom-settings" role="tabpanel" aria-labelledby="custom-settings-tab">
-                    <div style="max-height: 70vh; overflow-y: auto;">
+                    <div class="alert alert-primary font-italic" role="alert">
+                        <b>Note:</b> changing font will affect all font styling of all component. For better viewing, please select the default font. The default font is Nunito, under safe font.
+                    </div>
+                    <div>
+                        <div class="mt-2 mb-2">
+                            <strong>Font Type:</strong>
+                            <select class="custom-select mb-3" v-model="font.font_type">
+                                <option value="2">Select Safe Font & Set As Default Font</option>
+                                <option value="3">Select Old Custom Font & Set As Default Font</option>
+                                <option value="1">Upload Custom Font & Set As Default Font</option>
+                            </select>
+                        </div>
+                        <div class="mt-2 mb-2" v-if="font.font_type == 3">
+                            <strong>Please select default font:</strong>
+                            <select class="custom-select" v-model="font.old_custom_font">
+                                <option v-for="oldCustomFont in oldCustomFonts" :value="oldCustomFont.path_location">@{{ oldCustomFont.name }}</option>
+                            </select>
+                        </div>
+                        <div class="mt-2 mb-2" v-if="font.font_type == 2">
+                            <strong>Please select default font:</strong>
+                            <select class="custom-select" v-model="font.font_safe">
+                                <option value="Nunito">Nunito</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Times">Times</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Courier">Courier</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Palatino">Palatino</option>
+                                <option value="Garamond">Garamond</option>
+                                <option value="Bookman">Bookman</option>
+                                <option value="Comic Sans MS">Comic Sans MS</option>
+                                <option value="Candara">Candara</option>
+                                <option value="Arial Black">Arial Black</option>
+                                <option value="Impact">Impact</option>
+                            </select>
+                        </div>
+                        <div class="mt-2 mb-2" v-if="font.font_type == 1">
+                            <strong>Custom Font Name: (Required Field)</strong>
+                            <input type="text" class="w-100 required form-control placeholder-left" v-model="font.custom_font_name">
+                            <strong>Upload you font file:</strong>
+                            <input type="file" class="form-control p-1" v-on:change="onFileChange">
+                        </div>
+                        <button class="mt-3 btn btn-block btn-primary" @click="formSubmit()">Save and Apply Changes</button>
                     </div>
                 </div>
             </div>
-
-            <button class="mt-3 btn btn-block btn-primary" @click="save()">Save and Apply Changes</button>
+                            {{-- <button @click="formSubmit()" class="btn btn-success">Submit</button> --}}
         </div>
     </div>
 </div>
