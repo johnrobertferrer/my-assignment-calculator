@@ -33,7 +33,7 @@
                                                 document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('/') }}">
+                                <a class="dropdown-item" href="/">
                                     {{ __('Preview Home Page') }}
                                 </a>
 
