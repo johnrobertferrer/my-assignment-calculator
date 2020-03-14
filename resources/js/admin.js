@@ -21,7 +21,7 @@ let app = new Vue({
             customSettings: ['1'],
             font: {
                 file: '',
-                font_type: 1,
+                font_type: 2,
                 font_safe: '',
                 custom_font_name: '',
                 old_custom_font: ''
