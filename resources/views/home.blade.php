@@ -81,7 +81,7 @@
                 </div>
                 <div class="tab-pane fade" id="pills-custom-settings" role="tabpanel" aria-labelledby="custom-settings-tab">
                     <div class="alert alert-primary font-italic" role="alert">
-                        <b>Note:</b> this will change the overall font styling. For better viewing, please select the default font. <br><br><hr> The default font is Nunito, under safe font.
+                        <b>Note:</b> this will change the overall font styling. For better viewing, please select the default font. The default font is <b>Nunito</b>, under safe font.
                     </div>
                     <div>
                         <div class="mt-2 mb-2">
