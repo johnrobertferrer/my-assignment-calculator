@@ -87,7 +87,7 @@
                         <div class="mt-2 mb-2">
                             <strong>Font Type:</strong>
                             <select class="custom-select mb-3" v-model="font.font_type">
-                                <option value="2">Select Safe Font & Set As Default Font</option>
+                                <option value="2" selected>Select Safe Font & Set As Default Font</option>
                                 <option value="3">Select Old Custom Font & Set As Default Font</option>
                                 <option value="1">Upload Custom Font & Set As Default Font</option>
                             </select>
@@ -101,6 +101,7 @@
                         <div class="mt-2 mb-2" v-if="font.font_type == 2">
                             <strong>Please select default font:</strong>
                             <select class="custom-select" v-model="font.font_safe">
+                                <option value="null">Click me..</option>
                                 <option value="Nunito">Nunito</option>
                                 <option value="Arial">Arial</option>
                                 <option value="Times New Roman">Times New Roman</option>

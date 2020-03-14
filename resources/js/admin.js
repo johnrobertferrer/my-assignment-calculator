@@ -22,7 +22,7 @@ let app = new Vue({
             font: {
                 file: '',
                 font_type: 1,
-                font_safe: 'Nunito',
+                font_safe: '',
                 custom_font_name: '',
                 old_custom_font: ''
             }
@@ -92,6 +92,11 @@ let app = new Vue({
             console.log(that.font);
 
             if (that.font.font_type == 2) {
+                if(this.font.font_safe == "" || this.font.font_safe == null || this.font.font_safe == "null") {
+                    that.message.errors.push("Please select default font.");
+                    return false;
+                }
+
                 Axios.post('/custom-settings-natural-font-type', {
                     font_safe: that.font.font_safe,
                     font_type: that.font.font_type
@@ -103,6 +108,11 @@ let app = new Vue({
                     that.message.errors.push(error);
                 });
             } else if (that.font.font_type == 3) {
+                if(this.font.old_custom_font == "") {
+                    that.message.errors.push("Please select default font.");
+                    return false;
+                }
+
                 Axios.post('/custom-settings-old-custom-font-type', {
                     old_custom_font: that.font.old_custom_font,
                     font_type: that.font.font_type

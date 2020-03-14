@@ -38,8 +38,8 @@
                     @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">
-                                <img src="{{ asset('img/login.svg') }}" width="25px" alt="" class="mr-1">
-                                {{ __('Return Home') }}
+                                <img src="{{ asset('img/admin-panel.svg') }}" width="25px" alt="" class="mr-1">
+                                {{ __('Return Admin Panel') }}
                             </a>
                         </li>
                     @endauth
