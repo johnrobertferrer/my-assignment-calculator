@@ -22,7 +22,7 @@ let app = new Vue({
             font: {
                 file: '',
                 font_type: 2,
-                font_safe: '',
+                font_safe: 'null',
                 custom_font_name: '',
                 old_custom_font: ''
             }

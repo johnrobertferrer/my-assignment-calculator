@@ -101,6 +101,7 @@
                         <div class="mt-2 mb-2" v-if="font.font_type == 2">
                             <strong>Please select default font:</strong>
                             <select class="custom-select" v-model="font.font_safe">
+                                <option value="null" disabled>Select default font..</option>
                                 <option value="Nunito">Nunito</option>
                                 <option value="Arial">Arial</option>
                                 <option value="Times New Roman">Times New Roman</option>
